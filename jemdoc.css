@@ -1,56 +1,50 @@
-/* =========================================================
-   Base
-   ========================================================= */
+/* Default css file for jemdoc. */
 
+/* Prevent mobile browsers from automatically resizing text */
 html {
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
 }
 
-* {
-    box-sizing: border-box;
+table#tlayout {
+    border: none;
+    border-collapse: separate;
+    background: white;
 }
 
 body {
     background: white;
-    color: #000;
     font-family: Georgia, serif;
-    font-size: 16px;
-    line-height: 1.3;
-    padding: 0 0 8px 0;
+    padding-bottom: 8px;
     margin: 0;
 }
-
-
-/* =========================================================
-   Main page layout
-   ========================================================= */
-
-#page {
-    display: flex;
-    align-items: flex-start;
-    width: 100%;
-    margin: 0;
-}
-
-
-/* =========================================================
-   Navigation menu
-   ========================================================= */
 
 #layout-menu {
-    flex: 0 0 auto;
-
     background: #f6f6f6;
     border: 1px solid #dddddd;
-
-    padding: 0.5em 8px 0.8em 8px;
-
-    font-size: 1em;
+    padding-top: 0.5em;
+    padding-left: 8px;
+    padding-right: 8px;
+    font-size: 1.0em;
+    width: auto;
     white-space: nowrap;
     text-align: left;
+    vertical-align: top;
+}
 
-    min-width: 125px;
+#layout-menu td {
+    background: #f4f4f4;
+    vertical-align: top;
+}
+
+#layout-content {
+    padding-top: 0.0em;
+    padding-left: 1.0em;
+    padding-right: 1.0em;
+    border: none;
+    background: white;
+    text-align: left;
+    vertical-align: top;
 }
 
 #layout-menu a {
@@ -58,17 +52,36 @@ body {
     margin-left: 0.5em;
 }
 
-#layout-menu a:link,
-#layout-menu a:visited,
-#layout-menu a:hover {
+tt {
+    background: #ffffdd;
+}
+
+pre, tt {
+    font-size: 90%;
+    font-family: monaco, monospace;
+}
+
+a, a > tt {
+    color: #224b8d;
+    text-decoration: none;
+}
+
+a:hover {
+    border-bottom: 1px gray dotted;
+}
+
+#layout-menu a.current:link, #layout-menu a.current:visited {
+    color: #022b6d;
+    border-bottom: 1px gray solid;
+}
+
+#layout-menu a:link, #layout-menu a:visited, #layout-menu a:hover {
     color: #527bbd;
     text-decoration: none;
 }
 
-#layout-menu a.current:link,
-#layout-menu a.current:visited {
-    color: #022b6d;
-    border-bottom: 1px gray solid;
+#layout-menu a:hover {
+    text-decoration: none;
 }
 
 div.menu-category {
@@ -84,42 +97,33 @@ div.menu-item {
     text-indent: -16px;
 }
 
-
-/* =========================================================
-   Main content
-   ========================================================= */
-
-#layout-content {
-    flex: 1 1 auto;
-
-    min-width: 0;
-
-    padding: 0 1em;
-
-    background: white;
-    text-align: left;
-}
-
-
-/* =========================================================
-   Title
-   ========================================================= */
-
 div#toptitle {
     padding-bottom: 0.2em;
     margin-bottom: 1.5em;
     border-bottom: 3px double gray;
 }
 
-div#toptitle h1 {
-    margin: 0.5em 0 0 0;
-    padding: 0 0 0.1em 0;
-    border-bottom: none;
+/* Reduce space if we begin the page with a title. */
+div#toptitle + h2, div#toptitle + h3 {
+    margin-top: -0.7em;
 }
 
-h1,
-h2,
-h3 {
+div#subtitle {
+    margin-top: 0.0em;
+    margin-bottom: 0.0em;
+    padding-top: 0em;
+    padding-bottom: 0.1em;
+}
+
+em {
+    font-style: italic;
+}
+
+strong {
+    font-weight: bold;
+}
+
+h1, h2, h3 {
     color: #527bbd;
     margin-top: 0.7em;
     margin-bottom: 0.3em;
@@ -147,166 +151,11 @@ h3 {
     border-bottom: none;
 }
 
-
-/* =========================================================
-   Text
-   ========================================================= */
-
 p {
-    margin-top: 0;
+    margin-top: 0.0em;
     margin-bottom: 0.8em;
     padding: 0;
     line-height: 1.3;
-}
-
-em {
-    font-style: italic;
-}
-
-strong {
-    font-weight: bold;
-}
-
-a {
-    color: #224b8d;
-    text-decoration: none;
-}
-
-a:hover {
-    border-bottom: 1px gray dotted;
-}
-
-
-/* =========================================================
-   Profile / photo / contact information
-   ========================================================= */
-
-.profile {
-    display: flex;
-    align-items: flex-start;
-    gap: 1em;
-
-    margin-bottom: 1em;
-}
-
-.profile-photo {
-    flex: 0 0 auto;
-}
-
-.profile-photo img {
-    display: block;
-    width: 215px;
-    height: 230px;
-    object-fit: cover;
-}
-
-.profile-info {
-    flex: 1 1 auto;
-    min-width: 0;
-}
-
-.profile-info p {
-    margin-bottom: 0;
-}
-
-
-/* =========================================================
-   Research interests
-   ========================================================= */
-
-.research-interests {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.8em 2em;
-}
-
-
-/* =========================================================
-   CV tables
-   ========================================================= */
-
-.cv-table {
-    width: 100%;
-    border: none;
-    border-collapse: collapse;
-    margin: 0;
-}
-
-.cv-table td {
-    padding: 2px 0.5em;
-    border: none;
-
-    font-size: inherit;
-    font-family: inherit;
-
-    vertical-align: top;
-}
-
-.cv-table td:first-child {
-    width: auto;
-}
-
-.cv-table .date {
-    width: 1%;
-    white-space: nowrap;
-    padding-left: 2em;
-}
-
-.cv-table .spacer td {
-    height: 0.8em;
-    padding: 0;
-}
-
-
-/* =========================================================
-   Lists
-   ========================================================= */
-
-ul,
-ol,
-dl {
-    margin-top: 0.2em;
-    padding-top: 0;
-    margin-bottom: 0.8em;
-}
-
-ul {
-    list-style-position: outside;
-    list-style-type: square;
-}
-
-ol {
-    list-style-position: outside;
-    list-style-type: decimal;
-}
-
-li p {
-    margin-bottom: 0.3em;
-}
-
-p + ul,
-p + ol {
-    margin-top: -0.5em;
-}
-
-li ul,
-li ol {
-    margin-top: -0.3em;
-}
-
-
-/* =========================================================
-   Code / special elements
-   ========================================================= */
-
-tt {
-    background: #ffffdd;
-}
-
-pre,
-tt {
-    font-size: 90%;
-    font-family: Monaco, monospace;
 }
 
 pre {
@@ -314,9 +163,82 @@ pre {
     margin: 0;
 }
 
-div.codeblock,
-div.infoblock {
-    margin-right: 0;
+div#footer {
+    font-size: small;
+    border-top: 1px solid #c0c0c0;
+    padding-top: 0.1em;
+    margin-top: 4.0em;
+    color: #c0c0c0;
+}
+
+div#footer a {
+    color: #80a0b0;
+}
+
+div#footer-text {
+    float: left;
+    padding-bottom: 8px;
+}
+
+ul, ol, dl {
+    margin-top: 0.2em;
+    padding-top: 0;
+    margin-bottom: 0.8em;
+}
+
+dt {
+    margin-top: 0.5em;
+    margin-bottom: 0;
+}
+
+dl {
+    margin-left: 20px;
+}
+
+dd {
+    color: #222222;
+}
+
+dd > *:first-child {
+    margin-top: 0;
+}
+
+ul {
+    list-style-position: outside;
+    list-style-type: square;
+}
+
+p + ul, p + ol {
+    margin-top: -0.5em;
+}
+
+li ul, li ol {
+    margin-top: -0.3em;
+}
+
+ol {
+    list-style-position: outside;
+    list-style-type: decimal;
+}
+
+li p, dd p {
+    margin-bottom: 0.3em;
+}
+
+ol ol {
+    list-style-type: lower-alpha;
+}
+
+ol ol ol {
+    list-style-type: lower-roman;
+}
+
+p + div.codeblock {
+    margin-top: -0.6em;
+}
+
+div.codeblock, div.infoblock {
+    margin-right: 0%;
     margin-top: 1.2em;
     margin-bottom: 1.3em;
 }
@@ -337,14 +259,25 @@ div.infoblock > div.blockcontent {
     background: #ffffee;
 }
 
+div.blockcontent p + ul, div.blockcontent p + ol {
+    margin-top: 0.4em;
+}
+
+div.infoblock p {
+    margin-bottom: 0em;
+}
+
+div.infoblock li p, div.infoblock dd p {
+    margin-bottom: 0.5em;
+}
+
+div.infoblock p + p {
+    margin-top: 0.8em;
+}
+
 div.codeblock > div.blockcontent {
     background: #f6f6f6;
 }
-
-
-/* =========================================================
-   Other jemdoc elements
-   ========================================================= */
 
 span.pycommand {
     color: #000070;
@@ -370,19 +303,44 @@ span.error {
     color: #aa0000;
 }
 
-span.comment,
-span.comment > *,
-span.string,
-span.string > * {
+span.comment, span.comment > *, span.string, span.string > * {
     color: #606060;
 }
 
-img {
-    border: none;
+@media print {
+    #layout-menu {
+        display: none;
+    }
+}
+
+#fwtitle {
+    margin: 2px;
+}
+
+#fwtitle #toptitle {
+    padding-left: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+#layout-content h1:first-child,
+#layout-content h2:first-child,
+#layout-content h3:first-child {
+    margin-top: -0.7em;
+}
+
+div#toptitle h1,
+#layout-content div#toptitle h1 {
+    margin-bottom: 0.0em;
+    padding-bottom: 0.1em;
+    padding-top: 0;
+    margin-top: 0.5em;
+    border-bottom: none;
 }
 
 img.eq {
-    padding: 0 0.1em;
+    padding: 0;
+    padding-left: 0.1em;
+    padding-right: 0.1em;
     margin: 0;
 }
 
@@ -393,199 +351,55 @@ img.eqwl {
     margin: 0;
 }
 
+table {
+    border: none;
+    border-collapse: collapse;
+}
+
+td {
+    padding: 2px;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    border: none;
+}
+
+table + table {
+    margin-top: 1em;
+}
+
+tr.heading {
+    font-weight: bold;
+}
+
+img {
+    border: none;
+}
+
+table.imgtable,
+table.imgtable td {
+    border: none;
+    text-align: left;
+}
+
 
 /* =========================================================
-   Footer
-   ========================================================= */
-
-div#footer {
-    font-size: small;
-    border-top: 1px solid #c0c0c0;
-    padding-top: 0.1em;
-    margin-top: 4em;
-    color: #c0c0c0;
-}
-
-div#footer a {
-    color: #80a0b0;
-}
-
-div#footer-text {
-    float: left;
-    padding-bottom: 8px;
-}
-
-
-/* =========================================================
-   Mobile layout
+   Mobile table/text fix
    ========================================================= */
 
 @media screen and (max-width: 700px) {
 
-    body {
-        font-size: 16px;
+    html {
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
     }
 
-    #page {
-        display: block;
-        width: 100%;
-        max-width: none;
-    }
-
-    #layout-menu {
-        width: auto;
-        margin: 0 0.5em;
-        padding: 0.4em 8px 0.6em 8px;
-
-        white-space: normal;
-    }
-
-    #layout-menu .menu-category {
-        margin-top: 0.4em;
-    }
-
-    #layout-menu .menu-item {
-        display: inline-block;
-        margin-right: 1em;
-        padding-left: 0;
-        text-indent: 0;
-    }
-
-    #layout-menu a {
-        margin-left: 0;
-    }
-
-    #layout-content {
-        width: auto;
-        padding-left: 0.8em;
-        padding-right: 0.8em;
-    }
-
-    h1 {
-        font-size: 155%;
-    }
-
-    h2 {
-        font-size: 125%;
-    }
-
-    h3 {
-        font-size: 110%;
-    }
-
-    /* Profile */
-    .profile {
-        gap: 0.8em;
-    }
-
-    .profile-photo img {
-        width: 150px;
-        height: auto;
-    }
-
-    .profile-info {
-        min-width: 0;
-    }
-
-    /* Research interests */
-    .research-interests {
-        display: block;
-    }
-
-    .research-interests span {
-        display: inline;
-        margin-right: 1.2em;
-    }
-
-    /* CV tables */
-    .cv-table {
-        width: 100%;
-    }
-
-    .cv-table td {
+    table,
+    td {
         font-size: inherit;
-        padding-left: 0;
-        padding-right: 0;
+        font-family: inherit;
     }
 
-    .cv-table .date {
-        display: block;
-        width: auto;
-        padding-left: 0;
-        padding-top: 0.1em;
-        padding-bottom: 0.2em;
-        white-space: normal;
-
-        color: #444;
-    }
-
-    .cv-table .spacer {
-        display: none;
-    }
-
-    /* Publications */
-    ol,
-    ul {
-        padding-left: 1.8em;
+    #layout-content table {
+        max-width: 100%;
     }
 }
-
-
-/* =========================================================
-   Very small screens
-   ========================================================= */
-
-@media screen and (max-width: 450px) {
-
-    body {
-        font-size: 16px;
-    }
-
-    #layout-content {
-        padding-left: 0.6em;
-        padding-right: 0.6em;
-    }
-
-    #layout-menu {
-        margin-left: 0.3em;
-        margin-right: 0.3em;
-    }
-
-    .profile {
-        gap: 0.7em;
-    }
-
-    .profile-photo img {
-        width: 120px;
-    }
-
-    .profile-info {
-        font-size: 0.95em;
-    }
-
-    h1 {
-        font-size: 145%;
-    }
-}
-
-
-/* =========================================================
-   Print
-   ========================================================= */
-
-@media print {
-
-    #layout-menu {
-        display: none;
-    }
-
-    #page {
-        display: block;
-        max-width: none;
-    }
-
-    #layout-content {
-        padding: 0;
-    }
-}
-```
